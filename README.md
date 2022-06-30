@@ -10,7 +10,7 @@ cd root
 npm run install-all
 ```
 
-### start all from root-
+### start all from root
 ```bash
 npm run start-all
 ```

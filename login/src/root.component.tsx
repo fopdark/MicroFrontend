@@ -1,9 +1,10 @@
 import {
   ButtonCustom,
+  commonState,
   ModalCustom,
 } from "@loiNguyen/common";
 import { POST } from "@loiNguyen/utility";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InputGroup, FormControl, Container, Row, Col } from "react-bootstrap";
 
 export default function Root() {
@@ -12,19 +13,19 @@ export default function Root() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
 
-  // useEffect(() => {
-  //   const subcription = commonState.subscribe((data) => {
-  //     console.log("Dữ liệu nhận được khi subcription commonState", data);
-  //   });
+  useEffect(() => {
+    const subcription = commonState.subscribe((data) => {
+      console.log("Dữ liệu nhận được khi subcription commonState", data);
+    });
 
-  //   return () => {
-  //     subcription.unsubscribe();
-  //   };
-  // });
+    return () => {
+      subcription.unsubscribe();
+    };
+  });
 
-  // const setCommonState = (data) => {
-  //   commonState.next({ data: "hello from common is click" });
-  // };
+  const setCommonState = (data) => {
+    commonState.next({ data });
+  };
 
   const onHandleLogin = async () => {
     const url = "localhost:8081/";
@@ -33,7 +34,7 @@ export default function Root() {
       password: userPasswordRef?.current?.value,
     };
 
-    // setCommonState(requestData);
+    setCommonState(requestData);
     const response = await POST(url, "login", requestData);
 
     if ((response.status == 200)) {

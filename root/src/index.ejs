@@ -40,7 +40,9 @@
         "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/es2015/rxjs.min.js",
         "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/es2015/rxjs-operators.min.js",
         "@loiNguyen/common": "//localhost:8011/loiNguyen-common.js",
-        "@loiNguyen/utility": "//localhost:8012/loiNguyen-utility.js"
+        "@loiNguyen/utility": "//localhost:8012/loiNguyen-utility.js",
+        "@loiNguyen/root-config": "//localhost:9000/loiNguyen-root-config.js",
+        "@loiNguyen/login": "//localhost:8010/loiNguyen-login.js"
       }
     }
   </script>
@@ -49,17 +51,15 @@
   <!-- Add your organization's prod import map URL to this script's src  -->
   <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
 
-  <% if (isLocal) { %>
+  <!-- <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-        "@loiNguyen/root-config": "//localhost:9000/loiNguyen-root-config.js",
-        "@loiNguyen/login": "//localhost:8010/loiNguyen-login.js"
       }
     }
   </script>
-  <% } %>
+  <% } %> -->
 
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
